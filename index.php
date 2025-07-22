@@ -17,6 +17,15 @@ class Computer
         $this->gpu = $gpu;
         $this->cpu = $cpu;
     }
+
+    public function checkApple()
+    {
+        if (!($this->cpu instanceof Apple)) {
+            echo "Il PC che hai configurato ha una RAM di " . $this->ram->size() . ", una Scheda video " . $this->gpu->type() . " e un Processore " . $this->cpu->type() . "\n";
+        } else {
+            echo "Il MacBook che hai configurato ha una RAM di " . $this->ram->size() . ", una Scheda video " . $this->gpu->type() . " e un Processore " . $this->cpu->type() . "\n";
+        }
+    }
 }
 
 
@@ -28,10 +37,5 @@ $computers = [
 ];
 
 foreach ($computers as $computer) {
-
-    if (!($computer->cpu instanceof Apple)) {
-        echo "Il PC che hai configurato ha una RAM di " . $computer->ram->size() . ", una Scheda video " . $computer->gpu->type() . " e un Processore " . $computer->cpu->type() . "\n";
-    } else {
-        echo "Il MacBook che hai configurato ha una RAM di " . $computer->ram->size() . ", una Scheda video " . $computer->gpu->type() . " e un Processore " . $computer->cpu->type() . "\n";
-    }
+    $computer->checkApple();
 };
